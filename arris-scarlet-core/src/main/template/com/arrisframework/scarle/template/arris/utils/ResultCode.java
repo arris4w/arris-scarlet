@@ -1,0 +1,301 @@
+/*
+ * 文  件  名：ResultCode.java
+ * 版         权：Copyright 2015-2025 ARRIS Rights Reserved.
+ * 描         述：
+ * 修  改  人：arris
+ * 修改时间：2015-2-23
+ * 修改内容：新增
+ */
+package com.arrisframework.scarle.template.arris.utils;
+
+/**
+ * Define the Engine Service return error code to the Engine
+ * <p>
+ * All error codes for 6 digits.
+ *
+ * @author arris
+ * @version C01 2015-2-23
+ * @since
+ */
+public enum ResultCode {
+    /**
+     * 000000 处理成功。
+     */
+    SUCCESS("000000", "处理成功。"),
+
+    /**
+     * 100002 客户端请求参数错误。
+     */
+    REQUEST_PARAM_ERROR("100002", "请求参数错误。"),
+
+    /**
+     * 400002 Token 失效。
+     */
+    TOKEN_INVALID("400002", "Token 失效。"),
+
+    /**
+     * 400003 账户名不存在。
+     */
+    ACCOUNT_NOT_EXIST("400003", "账户名不存在。"),
+
+    /**
+     * 400004 账户名或密码错误。
+     */
+    ACCOUNT_OR_PWD_ERROR("400004", "账户名或密码错误。"),
+
+    /**
+     * 400005 用户账号被禁用。
+     */
+    ACCOUNT_IS_FORBIDDEN("400005", "您的账号已被禁用。"),
+
+    /**
+     * 400006 超级管理员账号不允许删除。
+     */
+    DELETE_ADMIN_IS_FORBIDDEN("400006", "超级管理员账号不允许删除。"),
+
+    /**
+     * 400007 当前登录管理员不能删除
+     */
+    DELETE_LOGIN_ADMIN_IS_FORBIDDEN("400007", "当前登录管理员不能删除。"),
+
+    /**
+     * 超级管理员角色不允许删除
+     */
+    ADMIN_ROLE_NOT_DELETE("400010", "超级管理员角色不允许删除"),
+
+    /**
+     * 已关联的角色不允许删除
+     */
+    RELATED_ROLE_NOT_DELETE("400011", "已关联用户的角色不允许删除"),
+
+    /**
+     * 已关联的角色不允许删除
+     */
+    RELATED_MENU_NOT_DELETE("400012", "已关联菜单的角色不允许删除"),
+
+    /**
+     * 400031用户密码密码错误。
+     */
+    USER_PWD_ERROR("400031", "用户密码错误。"),
+
+    /**
+     * 400050 导入数据格式有问题。
+     */
+    USER_IMPORT_PATTERN_ERROR("400050", "导入数据格式有问题。"),
+
+    /**
+     * 400051 账号已注册。
+     */
+    USER_REGISTERED_ERROR("400051", "该账号已经注册。"),
+
+    /**
+     * 400052 账号未注册。
+     */
+    USER_UNREGISTER_ERROR("400052", "该账号没有注册。"),
+    /**
+     * 400053 账号未注册。
+     */
+    USER_IMPORT_SOURCE_ERROR("400053", "导入失败,导入文件中的来源不一致。"),
+
+    /**
+     * 400054 导入非该类型的Excel。
+     */
+    USER_IMPORT_TYPE_ERROR("400054", "导入非该类型的Excel。"),
+
+    /**
+     * 400055 无法标示导入数据来源。
+     */
+    USER_IMPORT_SOURCE_FLAG_ERROR("400055", "无法标示导入数据来源。"),
+
+    /**
+     * 400056 导入数据不能超过1000条。
+     */
+    USER_IMPORT_NUMBER_ERROR("400056", "导入数据不能超过10000条。"),
+
+    /**
+     * 400057 文件解析出错。
+     */
+    USER_IMPORT_RESOLVE_ERROR("400057", "文件解析出错。"),
+
+    /**
+     * 400058 短信发送失败，请稍后再试。
+     */
+    SMS_SEND_ERROR("400058", "短信发送失败，请稍后再试。"),
+
+    /**
+     * 400061 账号没有验证。
+     */
+    USER_NOT_VERIFIED_ERROR("400061", "您的账号没有验证。"),
+
+    /**
+     * 400062 验证码错误。
+     */
+    CAPTCHA_ERROR("400062", "验证码错误。"),
+
+    /**
+     * 400063 验证码超时。
+     */
+    CAPTCHA_TIMEOUT("400063", "验证码超时。"),
+
+    /**
+     * 400064 验证发送太频繁。
+     */
+    CAPTCHA_SEND_TO_FREQUENTLY("400064", "验证发送太频繁。"),
+
+    /**
+     * 400101 角色名称已存在。
+     */
+    ROLE_EXITS_ERROR("400101", "角色名称已存在。"),
+
+    /**
+     * 400121 已关联子菜单，不能删除。。
+     */
+    MENU_RELATED_SUBMENU("400121", "已关联子菜单不能删除。"),
+
+    /**
+     * 400121 已关联子菜单，不能删除。。
+     */
+    MENU_RELATED_ROLE("400122", "已关联角色的菜单不能删除。"),
+
+    /**
+     * 400171 未绑定会员卡。
+     */
+    VIPCARD_UNBOUND_ERROR("400171", "未绑定会员卡。"),
+
+    /**
+     * 400172 用户无当前平台积分数据。
+     */
+    USER_HAS_NOT_SOURCE_JIFEN_DATA("400172", "用户无当前平台积分数据。"),
+
+    /**
+     * 400101 收货地址达到限制。
+     */
+    SHIPPING_ADDRESS_REACH_LIMIT("400181", "收货地址达到限制。"),
+
+    /**
+     * 401021 物流公司已存在。
+     */
+    LOGISTICS_EXITS_ERROR("400201", "物流公司已存在。"),
+    /**
+     * 400221 公告已存在
+     */
+    NOTICE_EXITS_ERROR("400221", "公告已存在"),
+
+    /**
+     * 400222 已发布的公告不能删除
+     */
+    PUBLISH_NOTICE_DELETE_ERROR("400222", "已发布的公告不能删除"),
+    /**
+     * 400223 已发布的公告不能修改
+     */
+    PUBLISH_NOTICE_MODIFY_ERROR("400223", "已发布的公告不能修改"),
+
+    /**
+     * 400241 位置已存在
+     */
+    TARGET_EXITS_ERROR("400241", "位置已存在"),
+
+    /**
+     * 400246 该位置发布内容数量已超限
+     */
+    TARGETCONTENT_PUBLISH_LIMITE("400246", "该位置发布内容数量已超限"),
+
+    /**
+     * 400247 已发布的内容不允许删除
+     */
+    TARGETCONTENT_DELETE_LIMITE("400247", "已发布的内容不允许删除"),
+
+    /**
+     * 400248 已发布的公告不可以修改
+     */
+    PUBLISH_TARGETCONTENT_MODIFY_ERROR("400248", "已发布的内容不可以修改"),
+
+    /**
+     * 400251 您的积分不够支付当前订单。
+     */
+    NOT_ENOUGH_TO_PAY("400251", "积分不够当前扣减。"),
+
+    /**
+     * 400252 文件解析出错。
+     */
+    JIFEN_IMPORT_RESOLVE_ERROR("400252", "文件解析出错。"),
+
+    /**
+     * 400253 导入非该类型的Excel。
+     */
+    JIFEN_IMPORT_TYPE_ERROR("400253", "导入非该类型的Excel。"),
+
+    /**
+     * 400254 无法标示导入数据来源。
+     */
+    JIFEN_IMPORT_SOURCE_FLAG_ERROR("400254", "无法标示导入数据来源。"),
+
+    /**
+     * 400255 导入数据不能超过500条。
+     */
+    JIFEN_IMPORT_NUMBER_ERROR("400255", "导入数据不能超过500条。"),
+
+    /**
+     * 400256 导入失败,导入文件中的来源不一致。
+     */
+    JIFEN_IMPORT_SOURCE_ERROR("400256", "导入失败,导入文件中的来源不一致。"),
+
+    /**
+     * 400257 导入数据格式有问题。
+     */
+    JIFEN_IMPORT_PATTERN_ERROR("400257", "导入数据格式有问题。"),
+
+    /**
+     * 400258 导入数据格式有问题。
+     */
+    JIFEN_CHANGE_INNER_ERROR("400258", "单次操作积分不能超50000。"),
+
+    /**
+     * 999998 业务处理失败。
+     */
+    BUSINESS_PROCESS_FAILURE("999998", "业务处理失败。"),
+
+    /**
+     * 999999
+     */
+    SERVER_INNER_ERROR("999999", "服务器内部处理异常。");
+
+    /**
+     * 返回码编码
+     */
+    private final String code;
+
+    /**
+     * 返回码描述
+     */
+    private final String desc;
+
+    /**
+     * 构造函数
+     *
+     * @param code 返回码编码
+     * @param desc 返回码描述
+     */
+    private ResultCode(String code, String desc) {
+        this.code = code;
+        this.desc = desc;
+    }
+
+    /**
+     * 获取返回码编码
+     *
+     * @return 返回码编码
+     */
+    public String getCode() {
+        return code;
+    }
+
+    /**
+     * 获取返回码描述
+     *
+     * @return 返回码描述
+     */
+    public String getDesc() {
+        return desc;
+    }
+}

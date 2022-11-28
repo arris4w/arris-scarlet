@@ -1,0 +1,109 @@
+package ${common.package}.service.${bean.pname.lower}.impl;
+${import}
+/**
+ * ${bean.comment}服务接口实现。
+ *
+ * @author ${common.user}
+ * @version V1.0 ${common.date}
+ */
+@Service
+public class ${bean.name}Service implements I${bean.name}Service {
+
+    /**
+     * 日志实例。
+     */
+    private static final Logger log = LoggerFactory.getLogger(${bean.name}Service.class);
+
+    /**
+     * ${bean.comment}数据库操作。
+     */
+    @Resource
+    private ${bean.name}Mapper ${bean.pname}Mapper;
+
+    /**
+     * 添加${bean.comment}。
+     *
+     * @author ${common.user}
+     * @param ${bean.pname} ${bean.comment}对象
+     * @throws ${common.exception} ${common.exception}
+     */
+    public void add(${bean.name} ${bean.pname}) throws ${common.exception} {
+        if (null == ${bean.pname}) {
+            log.error("Param invalid: the '${bean.pname}' is null.");
+            throw new ${common.exception}(ResultCode.REQUEST_PARAM_ERROR);
+        }
+
+        ${bean.pname}Mapper.save(${bean.pname});
+    }
+
+    /**
+     * 删除${bean.comment}。
+     *
+     * @author ${common.user}
+     ${method.comment}
+     * @throws ${common.exception} ${common.exception}
+     */
+    public void delete(${method.param}) throws ${common.exception} {
+        if (${method.body.judge}) {
+            log.error("Param invalid: the ${method.body.judge.log} is invalid.");
+            throw new ${common.exception}(ResultCode.REQUEST_PARAM_ERROR);
+        }
+
+        ${bean.pname}Mapper.delete(${method.body.param});
+    }
+    ${service.impl.deletes}
+    /**
+     * 获取${bean.comment}详情。
+     *
+     * @author ${common.user}
+     ${method.comment}
+     * @return ${bean.comment}
+     * @throws ${common.exception} ${common.exception}
+     */
+    public ${bean.name} get(${method.param}) throws ${common.exception} {
+        if (${method.body.judge}) {
+            log.error("Param invalid: the ${method.body.judge.log} is null.");
+            throw new ${common.exception}(ResultCode.REQUEST_PARAM_ERROR);
+        }
+
+        return ${bean.pname}Mapper.getById(${method.body.param});
+    }
+
+    /**
+     * 修改${bean.comment}。
+     *
+     * @author ${common.user}
+     * @param ${bean.pname} ${bean.comment}对象
+     * @return 是否修改成功
+     * @throws ${common.exception} ${common.exception}
+     */
+    public boolean modify(${bean.name} ${bean.pname}) throws ${common.exception} {
+        if (null == ${bean.pname} || ${method.body.judge.key}) {
+            log.error("Param invalid: the '${bean.pname}' or ${method.body.judge.log} is invalid.");
+            throw new ${common.exception}(ResultCode.REQUEST_PARAM_ERROR);
+        }
+
+        int result = ${bean.pname}Mapper.update(${bean.pname});
+        return result == 1 ? true : false;
+    }
+
+    /**
+     * 分页获取${bean.comment}列表数据。
+     *
+     * @author ${common.user}
+     * @param page 分页对象
+     * @throws ${common.exception} ${common.exception}
+     */
+    public void list(Page<${bean.name}> page) throws ${common.exception} {
+        if (null == page) {
+            log.error("Param invalid: the 'page' is null.");
+            throw new ${common.exception}(ResultCode.REQUEST_PARAM_ERROR);
+        }
+
+        List<${bean.name}> ${bean.pname}s = ${bean.pname}Mapper.list(page);
+        int totalRecords = ${bean.pname}Mapper.listCount(page);
+
+        page.setTotalRecords(totalRecords);
+        page.setCollection(${bean.pname}s);
+    }
+}

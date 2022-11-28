@@ -1,0 +1,29 @@
+package ${common.package}.system.context;
+
+import javax.servlet.ServletContextEvent;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.web.context.ContextLoaderListener;
+
+/**
+ * 系统容器监听器.
+ *
+ * @author ${common.user}
+ * @version ${common.date}
+ */
+public class ${common.projectName}ContextListener extends ContextLoaderListener {
+
+    /**
+     * 日志对象.
+     */
+    private static final Logger log = LoggerFactory.getLogger(${common.projectName}ContextListener.class);
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void contextInitialized(ServletContextEvent event) {
+        log.info("Site context was inited.");
+    }
+}

@@ -1,0 +1,58 @@
+package  ${common.package}.utils.exception;
+
+import com.arrisframework.common.exception.ArrisException;
+
+/**
+ * ${common.projectName}Exception.
+ *
+ * @author ${common.user}
+ * @version C01 ${common.date}
+ * @since
+ */
+public class ${common.projectName}Exception extends ArrisException {
+    /**
+     * serial Version UID.
+     */
+    private static final long serialVersionUID = 427388744384930525L;
+
+    /**
+     * 带异常码、异常描述的构造函数.
+     * 
+     * @param resultCode 返回码枚举
+     */
+    public ${common.projectName}Exception(ResultCode resultCode) {
+        super(resultCode.getCode(), resultCode.getDesc());
+    }
+
+    /**
+     * 带异常码、异常描述和异常堆栈的构造函数.
+     * 
+     * @param resultCode 返回码枚举
+     * @param cause 异常
+     */
+    public ${common.projectName}Exception(ResultCode resultCode, Throwable cause) {
+        super(resultCode.getCode(), resultCode.getDesc(), cause);
+    }
+
+    /**
+     * 带异常码、异常描述的构造函数.
+     * 
+     * @param code 异常码
+     * @param message 异常描述
+     */
+    public ${common.projectName}Exception(String code, String message) {
+        super(code, message);
+    }
+
+    /**
+     * 带异常码、异常描述和异常堆栈的构造函数.
+     * 
+     * @param exceptionCode 异常码
+     * @param message 异常消息
+     * @param cause 异常
+     */
+    public ${common.projectName}Exception(String exceptionCode, String message, Throwable cause) {
+        super(exceptionCode, message, cause);
+    }
+
+}

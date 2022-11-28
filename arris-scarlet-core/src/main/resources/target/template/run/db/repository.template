@@ -1,0 +1,82 @@
+/*
+ * 文  件  名：${bean.name}Dao.java
+ * 版         权：
+ * 描         述：
+ * 修  改  人：${common.user}
+ * 修改时间：${common.date}
+ */
+package ${common.package}.dao;
+
+import java.util.List;
+
+import com.arrisframework.common.page.Page;
+import ${common.package}.model.${bean.name};
+
+/**
+ * ${bean.comment}数据库操作接口
+ *
+ * @author ${common.user}
+ * @version V1.0 ${common.date}
+ */
+public interface ${bean.name}Dao
+{
+
+    /**
+     * 添加${bean.comment}
+     *
+     * @author ${common.user}
+     * @param ${bean.pname}
+     *            ${bean.comment}对象
+     * @return ${bean.comment}标识
+     */
+    int save(${bean.name} ${bean.pname});
+
+    /**
+     * 删除${bean.comment}
+     *
+     * @author ${common.user}
+     ${method.comment}
+     * @return 影响的行
+     */
+    int delete(${method.param});
+    ${repository.deletes}
+    /**
+     * 根据ID获取${bean.comment}
+     *
+     * @author ${common.user}
+     ${method.comment}
+     * @return ${bean.comment}
+     */
+    ${bean.name} getById(${method.param});
+
+    /**
+     * 修改${bean.comment}
+     *
+     * @author ${common.user}
+     * @param ${bean.pname}
+     *            ${bean.comment}对象
+     * @return 影响的行
+     */
+    int update(${bean.name} ${bean.pname});
+
+    /**
+     * 分页获取${bean.comment}列表
+     *
+     * @author ${common.user}
+     * @param page
+     *            分页对象
+     * @return ${bean.comment}对象列表
+     */
+    List<${bean.name}> list(Page page);
+
+    /**
+     * 获取${bean.comment}总数量
+     *
+     * @author ${common.user}
+     * @param page
+     *            分页对象
+     * @return ${bean.comment}数量
+     */
+    int listCount(Page page);
+
+}

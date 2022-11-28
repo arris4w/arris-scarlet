@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.arrisframework.scarle.template.arris.db.UserRepository">
+
+	<sql id="commonUserQuerySql">
+		select bu.user_id, bu.mobile, bu.password, bu.salt,
+		bu.nick_name, bu.user_name, bu.sex, bu.identity, bu.reg_time,
+		bu.source, bu.area_id, bu.address,bu.birthday,
+		bu.email,bu.last_modified_time,bu.user_status
+		from t_basic_user bu
+		where bu.is_delete=0
+	</sql>
+
+	<!-- 新增会员信息 -->
+	<insert id="save" parameterType="user">
+		insert into t_basic_user (
+		user_id, mobile, password, salt, nick_name,
+		user_name, sex, identity, reg_time, source,
+		area_id, address, email, last_modified_time,
+		birthday, user_status,is_delete )
+		values( #{userId}, #{mobile}, #{password}, #{salt}, #{nickName},
+		#{userName}, #{sex}, #{identity}, now(), #{source},
+		#{areaId}, #{address}, #{email}, now(), #{birthday}, 1,
+		0 )
+	</insert>
+
+	<update id="delete" parameterType="java.lang.String">
+		update t_basic_user set is_delete = 1
+		where user_id in
+		<foreach item="id" collection="array" open="(" separator="," close=")">
+			#{id}
+		</foreach>
+	</update>
+
+	<!-- 修改用户信息 -->
+	<update id="update" parameterType="user">
+		update t_basic_user
+		set user_name = #{userName}, nick_name = #{nickName}, sex = #{sex},
+		birthday = #{birthday}, area_id = #{areaId}, address = #{address},
+		email = #{email}, mobile = #{mobile},
+		where user_id = #{userId}
+	</update>
+
+	<!-- 根据用户id查询用户信息 -->
+	<select id="getById" parameterType="user" resultType="user">
+		<include refid="commonUserQuerySql" />
+		<if test="null != userId and '' != userId">
+			and bu.user_id = #{userId}
+		</if>
+	</select>
+
+	<select id="list" resultType="user" parameterType="com.futureholdings.cubp.common.page.Page">
+		<include refid="commonUserQuerySql" />
+		<if test="null != condition.mobile and '' != condition.mobile">
+			and bu.mobile like concat('%', #{condition.mobile}, '%')
+		</if>
+		order by bu.reg_time desc
+		limit #{startRecord}, #{rows}
+	</select>
+
+	<select id="listCount" resultType="java.lang.Integer" parameterType="com.futureholdings.cubp.common.page.Page">
+		select count(user_id) from (
+			<include refid="commonUserQuerySql" />
+			<if test="null != condition.mobile and '' != condition.mobile">
+				and bu.mobile like concat('%', #{condition.mobile}, '%')
+			</if>
+		) as t
+	</select>
+
+</mapper>

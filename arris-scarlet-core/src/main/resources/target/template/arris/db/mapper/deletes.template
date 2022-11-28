@@ -1,0 +1,8 @@
+
+	<!-- 批量删除${bean.comment}-->
+	<${sql.isDelete} id="deleteBatch" parameterType="java.lang.String">
+		${sql.deletePrefix}
+		<foreach item="id" collection="array" open="(" separator="," close=")">
+			#{id }
+		</foreach>
+	</${sql.isDelete}>

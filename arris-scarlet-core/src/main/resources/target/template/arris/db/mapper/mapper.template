@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="${common.package}.dao.${bean.name}Mapper">
+
+	<sql id="common${bean.name}QuerySql">
+		${sql.select}
+	</sql>
+
+	<!-- 新增${bean.comment} -->
+	<insert id="save" parameterType="${bean.pname}">
+		${sql.insert}
+	</insert>
+
+    <!-- 删除${bean.comment}-->
+	<${sql.isDelete} id="delete" parameterType="java.lang.String">
+		${sql.delete}
+	</${sql.isDelete}>
+    ${sql.deleteBatch}
+	<!-- 修改${bean.comment}-->
+	<update id="update" parameterType="${bean.pname}">
+		${sql.update}
+	</update>
+
+	<!-- 获取${bean.comment} -->
+	<select id="getById" parameterType="${bean.pname}" resultType="${bean.pname}">
+		<include refid="common${bean.name}QuerySql" />
+		${sql.keyCondition}
+	</select>
+
+	<!-- 查询${bean.comment} -->
+	<select id="list" parameterType="page" resultType="${bean.pname}">
+		<include refid="common${bean.name}QuerySql" />
+		limit #{startRecord}, #{rows}
+	</select>
+
+	<!-- 查询统计${bean.comment} -->
+	<select id="listCount" parameterType="page" resultType="java.lang.Integer">
+		select count(${bean.key.name.dbName}) from (
+			<include refid="common${bean.name}QuerySql" />
+		) as t
+	</select>
+
+</mapper>

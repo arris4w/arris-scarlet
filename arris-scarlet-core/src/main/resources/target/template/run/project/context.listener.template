@@ -1,0 +1,40 @@
+/*
+ * 文  件  名：${common.projectName}ContextListener.java
+ * 版         权：Copyright 2015-2025 ARRIS Rights Reserved.
+ * 描         述：
+ * 修  改  人：${common.user}
+ * 修改时间：${common.date}
+ * 修改内容：新增
+ */
+package ${common.package}.system.context;
+
+import javax.servlet.ServletContextEvent;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.web.context.ContextLoaderListener;
+
+/**
+ * 系统容器监听器
+ *
+ * @author ${common.user}
+ * @version ${common.date}
+ * @since
+ */
+public class ${common.projectName}ContextListener extends ContextLoaderListener
+{
+
+    /**
+     * 日志对象
+     */
+    private static final Logger log = LoggerFactory.getLogger(${common.projectName}ContextListener.class);
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void contextInitialized(ServletContextEvent event)
+    {
+        log.info("Site context was inited.");
+    }
+}

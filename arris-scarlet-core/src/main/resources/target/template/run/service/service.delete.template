@@ -1,0 +1,11 @@
+
+    /**
+     * 批量删除${bean.comment}
+     *
+     * @author ${common.user}
+     * @param ${bean.key.name}s
+     *            ${bean.comment}id数组
+     * @throws ${common.exception}
+     *             ${common.exception}
+     */
+    void delete(${bean.key.type}[] ${bean.key.name}s) throws ${common.exception};

@@ -1,0 +1,89 @@
+/*
+ * 文  件  名：ResultCode.java
+ * 版         权：Copyright 2015-2025 ARRIS Rights Reserved.
+ * 描         述：
+ * 修  改  人：${common.user}
+ * 修改时间：${common.date}
+ * 修改内容：新增
+ */
+package  ${common.package}.utils.exception;
+
+/**
+ * Define the ${common.projectName} Service return error code to the client
+ * <p>
+ * All error codes for 6 digits.
+ *
+ * @author ${common.user}
+ * @version C01 ${common.date}
+ * @since
+ */
+public enum ResultCode
+{
+    /**
+     * 000000 处理成功。
+     */
+    SUCCESS("000000", "处理成功。"),
+
+    /**
+     * 100002 客户端请求参数错误。
+     */
+    REQUEST_PARAM_ERROR("100002", "请求参数错误。"),
+
+
+    //TODO Porject result code definition
+
+
+    /**
+     * 999998 业务处理失败。
+     */
+    BUSINESS_PROCESS_FAILURE("999998", "业务处理失败。"),
+
+    /**
+     * 999999
+     */
+    SERVER_INNER_ERROR("999999", "服务器内部处理异常。");
+
+    /**
+     * 返回码编码
+     */
+    private final String code;
+
+    /**
+     * 返回码描述
+     */
+    private final String desc;
+
+    /**
+     * 构造函数
+     *
+     * @param code
+     *            返回码编码
+     * @param desc
+     *            返回码描述
+     */
+    private ResultCode(String code, String desc)
+    {
+        this.code = code;
+        this.desc = desc;
+    }
+
+    /**
+     * 获取返回码编码
+     *
+     * @return 返回码编码
+     */
+    public String getCode()
+    {
+        return code;
+    }
+
+    /**
+     * 获取返回码描述
+     *
+     * @return 返回码描述
+     */
+    public String getDesc()
+    {
+        return desc;
+    }
+}

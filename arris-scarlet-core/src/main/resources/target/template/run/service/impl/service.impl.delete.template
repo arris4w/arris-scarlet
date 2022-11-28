@@ -1,0 +1,28 @@
+
+    /**
+     * 批量删除${bean.comment}
+     *
+     * @author ${common.user}
+     * @param ${bean.key.name}s
+     *            ${bean.comment}id数组
+     * @throws ${common.exception}
+     *             ${common.exception}
+     */
+    public void delete(${bean.key.type}[] ${bean.key.name}s) throws ${common.exception}
+    {
+        if (null == ${bean.key.name}s || ${bean.key.name}s.length == 0)
+        {
+            log.error("Param invalid: the '${bean.key.name}s' is invalid.");
+            throw new ${common.exception}(ResultCode.REQUEST_PARAM_ERROR);
+        }
+
+        try
+        {
+            ${bean.pname}Dao.deleteBatch(${bean.key.name}s);
+        }
+        catch (Exception e)
+        {
+            log.error("Delete ${bean.pname} [" + ${bean.key.name}s + "] has exception.", e);
+            throw new ${common.exception}(ResultCode.BUSINESS_PROCESS_FAILURE, e);
+        }
+    }

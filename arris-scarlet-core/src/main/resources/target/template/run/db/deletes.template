@@ -1,0 +1,10 @@
+
+    /**
+     * 批量删除${bean.comment}
+     *
+     * @author ${common.user}
+     * @param ${bean.key.name}s
+     *            ${bean.comment}id数组
+     * @return 影响的行
+     */
+    int deleteBatch(${bean.key.type}[] ${bean.key.name}s);

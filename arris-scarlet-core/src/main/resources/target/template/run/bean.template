@@ -1,0 +1,37 @@
+/*
+ * 文  件  名：${bean.name}.java
+ * 版         权：
+ * 描         述：
+ * 修  改  人：${common.user}
+ * 修改时间：${common.date}
+ */
+package ${common.package}.model;
+${import}
+/**
+ * ${bean.comment}
+ *
+ * @author ${common.user}
+ * @version V1.0 ${common.date}
+ */
+public class ${bean.name}
+{
+    ${fields}
+    /**
+     * 构造函数
+     */
+    public ${bean.name}()
+    {
+
+    }
+
+    /**
+     * 构造函数
+     *
+     ${construct.comment}
+     */
+    public ${bean.name}(${construct.param})
+    {
+        ${construct.content}
+    }
+    ${getsets}
+}

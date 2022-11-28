@@ -1,0 +1,21 @@
+
+    /**
+     * 取得${field.name}
+     *
+     * @return 返回${field.name}。
+     */
+    public ${field.type} get${field.name}()
+    {
+        return ${field.name};
+    }
+
+    /**
+     * 设置${field.name}
+     *
+     * @param ${field.name}
+     *            要设置的${field.name}。
+     */
+    public void set${field.name}(${field.type} ${field.name})
+    {
+        this.${field.name} = ${field.name};
+    }

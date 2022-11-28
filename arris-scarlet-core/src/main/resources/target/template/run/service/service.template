@@ -1,0 +1,73 @@
+/*
+ * 文  件  名：I${bean.name}Service.java
+ * 版         权：
+ * 描         述：
+ * 修  改  人：${common.user}
+ * 修改时间：${common.date}
+ */
+package ${common.package}.service.${bean.pname.lower};
+${import}
+/**
+ * ${bean.comment}服务接口
+ *
+ * @author ${common.user}
+ * @version V1.0 ${common.date}
+ */
+public interface I${bean.name}Service
+{
+
+    /**
+     * 添加${bean.comment}
+     *
+     * @author ${common.user}
+     * @param ${bean.pname}
+     *            ${bean.comment}
+     * @throws ${common.exception}
+     *             ${common.exception}
+     */
+    void add(${bean.name} ${bean.pname}) throws ${common.exception};
+
+    /**
+     * 删除${bean.comment}
+     *
+     * @author ${common.user}
+     ${method.comment}
+     * @throws ${common.exception}
+     *             ${common.exception}
+     */
+    void delete(${method.param}) throws ${common.exception};
+    ${service.deletes}
+    /**
+     * 获取${bean.comment}详情
+     *
+     * @author ${common.user}
+     ${method.comment}
+     * @throws ${common.exception}
+     *             ${common.exception}
+     * @return ${bean.comment}
+     */
+    ${bean.name} get(${method.param}) throws ${common.exception};
+
+    /**
+     * 修改${bean.comment}
+     *
+     * @author ${common.user}
+     * @param ${bean.pname}
+     *            ${bean.comment}
+     * @return 是否修改成功
+     * @throws ${common.exception}
+     *             ${common.exception}
+     */
+    boolean modify(${bean.name} ${bean.pname}) throws ${common.exception};
+
+    /**
+     * 分页获取${bean.comment}列表数据
+     *
+     * @author ${common.user}
+     * @param page
+     *            分页对象
+     * @throws ${common.exception}
+     *             ${common.exception}
+     */
+    void list(Page page) throws ${common.exception};
+}
